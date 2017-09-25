@@ -1,19 +1,19 @@
 import sbt._
 
 object Version {
-  final val akka = "2.5.3"
-  final val akkaHttp = "10.0.8"
-  final val akkaHttpCirce = "1.17.0"
+  final val akka = "2.5.4"  //  "2.6.5" akka-actor is still 2.5.4
+  final val akkaHttp = "10.0.10"
+  final val akkaHttpCirce = "1.18.0"
   final val akkaJwt = "1.1.1"
-  final val Scala = "2.11.8"
-  final val AkkaLog4j = "1.4.0"
-  final val Log4j = "2.8.2"
-  final val swagger = "1.5.14"
-  final val swaggerAkka = "0.9.2"
+  final val Scala = "2.12.3"
+  final val AkkaLog4j = "1.5.0"
+  final val Log4j = "2.9.0"
+  final val swagger = "1.5.16"
+  final val swaggerAkka = "0.11.0"
   final val akkaHttpCors = "0.2.1"
   final val slickRepo = "1.4.3"
   final val postgresql = "9.4-1206-jdbc42"
-  final val circe = "0.6.1"
+  final val circe = "0.8.0"
   final val slick = "3.2.0"
   final val flyway = "3.2.1"
 }

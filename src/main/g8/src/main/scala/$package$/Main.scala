@@ -1,5 +1,6 @@
 package $package$
 
+import com.google.inject.Guice
 import akka.actor.ActorSystem
 import akka.event.{Logging, LoggingAdapter}
 import akka.http.scaladsl.Http
@@ -8,11 +9,12 @@ import de.innfactory.akka.AuthService
 import de.innfactory.akka.jwt.AutoValidator
 import $package$.http.HttpService
 import $package$.services.DummyService
-import $package$.utils.{Configuration, FlywayService, Persistence}
+import $package$.utils.{Configuration, FlywayService, Persistence, GuiceInjector, PrivateGuiceInjector}
 
 import scala.concurrent.ExecutionContext
 
 object Main extends App with Configuration {
+  val injector = Guice.createInjector(new GuiceInjector(), new PrivateGuiceInjector)
   // \$COVERAGE-OFF\$Main Application Wrapper
   implicit val actorSystem = ActorSystem()
   implicit val executor: ExecutionContext = actorSystem.dispatcher
@@ -29,6 +31,7 @@ object Main extends App with Configuration {
 
   val httpService = new HttpService(authService, dummyService)
 
-  Http().bindAndHandle(httpService.routes, httpHost, httpPort)
+  val httpFlow = akka.http.scaladsl.server.Route.handlerFlow(httpService.routes)
+  Http().bindAndHandle(httpFlow, httpHost, httpPort)
   // \$COVERAGE-ON\$
 }
