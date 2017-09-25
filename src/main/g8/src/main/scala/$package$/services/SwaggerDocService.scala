@@ -12,7 +12,7 @@ import io.swagger.models.auth.{ApiKeyAuthDefinition, In}
 
 
 class SwaggerDocService(address: String, port: Int, system: ActorSystem)
-  extends SwaggerHttpService
+  extends SwaggerHttpService {
   // with HasActorSystem {
   //override implicit val actorSystem: ActorSystem = system
   //override implicit val materializer: ActorMaterializer = ActorMaterializer()
