@@ -31,7 +31,8 @@ libraryDependencies ++= {
     "net.codingwell" %% "scala-guice" % "4.1.0",
     "org.apache.shiro" % "shiro-guice" % "1.4.0",
     "com.stormpath.shiro" % "stormpath-shiro-core" % "0.7.2",
-
+    "com.typesafe.akka" %% "akka-persistence" % "2.5.4",
+    
     TestLibrary.akkaTestkit,
     TestLibrary.akkaHttpTestkit,
     TestLibrary.postgresqlEmbedded,
